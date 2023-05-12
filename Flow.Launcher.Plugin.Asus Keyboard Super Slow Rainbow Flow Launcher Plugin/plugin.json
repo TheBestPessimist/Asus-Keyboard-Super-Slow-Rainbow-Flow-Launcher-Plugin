@@ -1,0 +1,12 @@
+{
+    "ID": "5E877DC6-1FE3-49BF-870C-2AB4C7DE20E2",
+    "ActionKeyword": "sp",
+    "Name": "Asus_Keyboard_Super_Slow_Rainbow_Flow_Launcher_Plugin",
+    "Description": "Asus Keyboard Super Slow Rainbow Plugin for Flow Launcher",
+    "Author": "TheBestPessimist",
+    "Version": "1.0.0",
+    "Language": "csharp",
+    "Website": "https://github.com/TheBestPessimist/Flow.Launcher.Plugin.Asus_Keyboard_Super_Slow_Rainbow_Flow_Launcher_Plugin",
+    "IcoPath": "icon.png",
+    "ExecuteFileName": "Flow.Launcher.Plugin.Asus_Keyboard_Super_Slow_Rainbow_Flow_Launcher_Plugin.dll"
+}

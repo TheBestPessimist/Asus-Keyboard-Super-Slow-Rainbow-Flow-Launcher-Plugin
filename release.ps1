@@ -1,0 +1,2 @@
+dotnet publish Flow.Launcher.Plugin.Asus_Keyboard_Super_Slow_Rainbow_Flow_Launcher_Plugin -c Release -r win-x64 --no-self-contained
+Compress-Archive -LiteralPath Flow.Launcher.Plugin.Asus_Keyboard_Super_Slow_Rainbow_Flow_Launcher_Plugin/bin/Release/win-x64/publish -DestinationPath Flow.Launcher.Plugin.Asus_Keyboard_Super_Slow_Rainbow_Flow_Launcher_Plugin/bin/Asus_Keyboard_Super_Slow_Rainbow_Flow_Launcher_Plugin.zip -Force
