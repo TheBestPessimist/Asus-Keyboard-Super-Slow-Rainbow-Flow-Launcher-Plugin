@@ -2,16 +2,15 @@
 
   <PropertyGroup>
     <TargetFramework>net7.0-windows</TargetFramework>
-    <AssemblyName>Flow.Launcher.Plugin.Asus_Keyboard_Super_Slow_Rainbow</AssemblyName>
-    <PackageId>Flow.Launcher.Plugin.Asus_Keyboard_Super_Slow_Rainbow</PackageId>
+    <AssemblyName>Flow.Launcher.Plugin.Asus_Keyboard_Super_Slow_Rainbow_Flow_Launcher_Plugin</AssemblyName>
+    <PackageId>Flow.Launcher.Plugin.Asus_Keyboard_Super_Slow_Rainbow_Flow_Launcher_Plugin</PackageId>
     <Authors>TheBestPessimist</Authors>
-    <PackageProjectUrl>https://github.com/TheBestPessimist/Flow.Launcher.Plugin.Asus_Keyboard_Super_Slow_Rainbow</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/TheBestPessimist/Flow.Launcher.Plugin.Asus_Keyboard_Super_Slow_Rainbow</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/TheBestPessimist/Flow.Launcher.Plugin.Asus_Keyboard_Super_Slow_Rainbow_Flow_Launcher_Plugin</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/TheBestPessimist/Flow.Launcher.Plugin.Asus_Keyboard_Super_Slow_Rainbow_Flow_Launcher_Plugin</RepositoryUrl>
     <PackageTags>flow-launcher flow-plugin</PackageTags>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <RootNamespace>Flow.Launcher.Plugin.Asus_Keyboard_Super_Slow_Rainbow</RootNamespace>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">

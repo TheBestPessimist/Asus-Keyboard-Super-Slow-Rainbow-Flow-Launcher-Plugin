@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Asus_Keyboard_Super_Slow_Rainbow;
 using JetBrains.Annotations;
 
-namespace Flow.Launcher.Plugin.Asus_Keyboard_Super_Slow_Rainbow
+namespace Flow.Launcher.Plugin.Asus_Keyboard_Super_Slow_Rainbow_Flow_Launcher_Plugin
 {
     /// <summary>
     /// Plug used to make Asus ROG Aura Keyboards show a very slow rainbow. Much slower than the default Aura speed.

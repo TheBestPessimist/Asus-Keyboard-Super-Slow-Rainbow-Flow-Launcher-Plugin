@@ -6,13 +6,13 @@ environment:
     DOTNET_CLI_TELEMETRY_OPTOUT: 1
 
 build_script:
-- ps: dotnet publish -c Release -r win-x64 --no-self-contained Flow.Launcher.Plugin.Asus_Keyboard_Super_Slow_Rainbow/Flow.Launcher.Plugin.Asus_Keyboard_Super_Slow_Rainbow.csproj
+- ps: dotnet publish -c Release -r win-x64 --no-self-contained Flow.Launcher.Plugin.Asus_Keyboard_Super_Slow_Rainbow_Flow_Launcher_Plugin/Flow.Launcher.Plugin.Asus_Keyboard_Super_Slow_Rainbow_Flow_Launcher_Plugin.csproj
 
 after_build:
 - ps: >-
-    Compress-Archive -Path "Flow.Launcher.Plugin.Asus_Keyboard_Super_Slow_Rainbow\bin\Release\win-x64\publish\*" -DestinationPath "plugin.zip"
+    Compress-Archive -Path "Flow.Launcher.Plugin.Asus_Keyboard_Super_Slow_Rainbow_Flow_Launcher_Plugin\bin\Release\win-x64\publish\*" -DestinationPath "plugin.zip"
 
-    Rename-Item plugin.zip Flow.Launcher.Plugin.Asus_Keyboard_Super_Slow_Rainbow.flowlauncher
+    Rename-Item plugin.zip Flow.Launcher.Plugin.Asus_Keyboard_Super_Slow_Rainbow_Flow_Launcher_Plugin.flowlauncher
 
 artifacts:
-    - path: 'Flow.Launcher.Plugin.Asus_Keyboard_Super_Slow_Rainbow.flowlauncher'
+    - path: 'Flow.Launcher.Plugin.Asus_Keyboard_Super_Slow_Rainbow_Flow_Launcher_Plugin.flowlauncher'
