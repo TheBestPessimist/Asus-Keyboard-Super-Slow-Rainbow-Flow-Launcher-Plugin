@@ -13,7 +13,7 @@ Compress-Archive -LiteralPath "bin/Release/win-x64/Asus Keyboard Super Slow Rain
 
 ### optional steps
 Stop-Process -Name "Flow.Launcher" -ErrorAction SilentlyContinue
-robocopy /E /Z /R:5 /W:5 /TBD /unicode /V /XJ /ETA /MT:32       "D:\all\work\Flow.Launcher.Plugin.Asus Keyboard Super Slow Rainbow\Flow.Launcher.Plugin.Asus Keyboard Super Slow Rainbow Flow Launcher Plugin\bin\Release\win-x64\Asus Keyboard Super Slow Rainbow-$version" 'D:\all\all\Flow.Launcher\app-1.15.0\UserData\Plugins\Asus Keyboard Super Slow Rainbow-1.0.0'
+robocopy /E /Z /R:5 /W:5 /TBD /unicode /V /XJ /ETA /MT:32       "D:\all\work\Flow.Launcher.Plugin.Asus Keyboard Super Slow Rainbow\Flow.Launcher.Plugin.Asus Keyboard Super Slow Rainbow\bin\Release\win-x64\Asus Keyboard Super Slow Rainbow-$version" 'D:\all\all\Flow.Launcher\app-1.15.0\UserData\Plugins\Asus Keyboard Super Slow Rainbow-1.0.0'
 #& "D:/all/work/Flow.Launcher/Output/Debug/Flow.Launcher.exe"
 
 echo "Done!"
