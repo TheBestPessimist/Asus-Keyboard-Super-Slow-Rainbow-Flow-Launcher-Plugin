@@ -28,4 +28,10 @@
     <PackageReference Include="Flow.Launcher.Plugin" Version="4.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="Asus Keyboard Super Slow Rainbow">
+      <HintPath>..\..\Asus Keyboard Fiddling\Asus Keyboard Fiddling\Asus Keyboard Super Slow Rainbow\bin\Release\net7.0\Asus Keyboard Super Slow Rainbow.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>
