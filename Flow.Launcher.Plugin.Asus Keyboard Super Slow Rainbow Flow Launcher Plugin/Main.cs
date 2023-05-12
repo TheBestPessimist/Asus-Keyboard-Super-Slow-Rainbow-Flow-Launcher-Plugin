@@ -13,10 +13,12 @@ namespace Flow.Launcher.Plugin.Asus_Keyboard_Super_Slow_Rainbow_Flow_Launcher_Pl
     [UsedImplicitly]
     public class Main : IAsyncPlugin
     {
-        // private PluginInitContext _context;
+        private PluginInitContext _context;
 
         private RainbowColors _currentRainbow;
         private Task _currentTask;
+
+        private Settings Settings;
 
         /// <inheritdoc />
         public Task<List<Result>> QueryAsync(Query query, CancellationToken token)
@@ -34,6 +36,7 @@ namespace Flow.Launcher.Plugin.Asus_Keyboard_Super_Slow_Rainbow_Flow_Launcher_Pl
                     Action = _ =>
                     {
                         _stopAndReload(newMinutesAmount);
+                        _context.API.SaveSettingJsonStorage<Settings>();
                         return true;
                     }
                 });
@@ -53,7 +56,9 @@ namespace Flow.Launcher.Plugin.Asus_Keyboard_Super_Slow_Rainbow_Flow_Launcher_Pl
         /// <inheritdoc />
         public Task InitAsync(PluginInitContext context)
         {
-            _stopAndReload(1);
+            Settings = _context.API.LoadSettingJsonStorage<Settings>() ?? new Settings();
+
+            _stopAndReload(Settings.Duration);
             return Task.CompletedTask;
         }
 
