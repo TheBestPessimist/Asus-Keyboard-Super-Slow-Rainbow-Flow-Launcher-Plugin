@@ -33,12 +33,12 @@ namespace Flow.Launcher.Plugin.Asus_Keyboard_Super_Slow_Rainbow_Flow_Launcher_Pl
                 {
                     Title = $"Desired duration: {newMinutesAmount} minutes",
                     AutoCompleteText = "",
-                    Action = _ =>
+                    AsyncAction = _ =>
                     {
                         _stopAndReload(newMinutesAmount);
                         Settings.Duration = newMinutesAmount;
                         _context.API.SaveSettingJsonStorage<Settings>();
-                        return true;
+                        return new ValueTask<bool>(true);
                     }
                 });
             }
