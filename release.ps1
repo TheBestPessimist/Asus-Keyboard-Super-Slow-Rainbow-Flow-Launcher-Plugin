@@ -1,7 +1,18 @@
-Stop-Process -Name "Flow.Launcher"
+
+echo "➡️ dir: $pwd"
+
+$version = (Get-Content 'Flow.Launcher.Plugin.Asus Keyboard Super Slow Rainbow Flow Launcher Plugin/plugin.json' | ConvertFrom-Json).Version
 
 dotnet publish "Flow.Launcher.Plugin.Asus Keyboard Super Slow Rainbow Flow Launcher Plugin" -c Release -r win-x64 --no-self-contained
-Compress-Archive -LiteralPath "Flow.Launcher.Plugin.Asus Keyboard Super Slow Rainbow Flow Launcher Plugin/bin/Release/win-x64/publish" -DestinationPath "Flow.Launcher.Plugin.Asus Keyboard Super Slow Rainbow Flow Launcher Plugin/bin/Asus Keyboard Super Slow Rainbow Flow Launcher Plugin.zip" -Force
-robocopy /E /Z /R:5 /W:5 /TBD /unicode /V /XJ /ETA /MT:32       'D:\all\work\Asus Keyboard Super Slow Rainbow Flow Launcher Plugin\Flow.Launcher.Plugin.Asus Keyboard Super Slow Rainbow Flow Launcher Plugin\bin\Release\win-x64\publish' 'C:\Users\TheBestPessimist\AppData\Roaming\FlowLauncher\Plugins\Asus-1.0.0'
+Remove-Item -Path "Flow.Launcher.Plugin.Asus Keyboard Super Slow Rainbow Flow Launcher Plugin/bin/Release/win-x64/Asus Keyboard Super Slow Rainbow-$version" -Recurse -Force -ErrorAction SilentlyContinue
+Rename-Item -Path "Flow.Launcher.Plugin.Asus Keyboard Super Slow Rainbow Flow Launcher Plugin/bin/Release/win-x64/publish" -NewName "Asus Keyboard Super Slow Rainbow-$version" -Force
+Compress-Archive -LiteralPath "Flow.Launcher.Plugin.Asus Keyboard Super Slow Rainbow Flow Launcher Plugin/bin/Release/win-x64/Asus Keyboard Super Slow Rainbow-$version" -DestinationPath "Flow.Launcher.Plugin.Asus Keyboard Super Slow Rainbow Flow Launcher Plugin/bin/Asus Keyboard Super Slow Rainbow Flow Launcher Plugin-$version.zip" -Force
 
-& "D:/all/work/Flow.Launcher/Output/Debug/Flow.Launcher.exe"
+
+### optional steps
+#Stop-Process -Name "Flow.Launcher" -ErrorAction SilentlyContinue
+#robocopy /E /Z /R:5 /W:5 /TBD /unicode /V /XJ /ETA /MT:32       "D:\all\work\Asus Keyboard Super Slow Rainbow Flow Launcher Plugin\Flow.Launcher.Plugin.Asus Keyboard Super Slow Rainbow Flow Launcher Plugin\bin\Release\win-x64\Asus Keyboard Super Slow Rainbow-$version" 'D:\all\all\Flow.Launcher\app-1.15.0\UserData\Plugins\Asus Keyboard Super Slow Rainbow-1.0.0'
+#& "D:/all/work/Flow.Launcher/Output/Debug/Flow.Launcher.exe"
+
+
+
