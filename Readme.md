@@ -5,4 +5,7 @@ A plugin for the [Flow launcher](https://github.com/Flow-Launcher/Flow.Launcher)
 
 ### Usage
 
-    sp <arguments>
+To make the rainbow cycle once every 30 minutes type:
+```
+asusk 30
+```
