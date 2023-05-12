@@ -36,6 +36,7 @@ namespace Flow.Launcher.Plugin.Asus_Keyboard_Super_Slow_Rainbow_Flow_Launcher_Pl
                     Action = _ =>
                     {
                         _stopAndReload(newMinutesAmount);
+                        Settings.Duration = newMinutesAmount;
                         _context.API.SaveSettingJsonStorage<Settings>();
                         return true;
                     }
@@ -56,8 +57,8 @@ namespace Flow.Launcher.Plugin.Asus_Keyboard_Super_Slow_Rainbow_Flow_Launcher_Pl
         /// <inheritdoc />
         public Task InitAsync(PluginInitContext context)
         {
-            Settings = _context.API.LoadSettingJsonStorage<Settings>() ?? new Settings();
-
+            _context = context;
+            Settings = _context.API.LoadSettingJsonStorage<Settings>();
             _stopAndReload(Settings.Duration);
             return Task.CompletedTask;
         }
