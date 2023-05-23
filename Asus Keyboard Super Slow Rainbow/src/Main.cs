@@ -2,11 +2,8 @@
 
 using System.Drawing;
 using Asus_Keyboard_Super_Slow_Rainbow;
+using static System.Console;
 
 #pragma warning disable CS8321
 
-
-var cts = new CancellationTokenSource();
-var ct = cts.Token;
-new RainbowColors(TimeSpan.FromSeconds(1000), ct: ct).DoTheRainbow();
-
+new RainbowColors(TimeSpan.FromSeconds(1000)).DoTheRainbow();

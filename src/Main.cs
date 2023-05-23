@@ -13,21 +13,29 @@ namespace Flow.Launcher.Plugin.Asus_Keyboard_Super_Slow_Rainbow
     [UsedImplicitly]
     public class Main : IAsyncPlugin
     {
-        private PluginInitContext _context;
+        private PluginInitContext _context = null!;
 
-        private RainbowColors _currentRainbow;
-        private Task _currentTask;
+        private RainbowColors? _currentRainbow;
+        private Task _currentTask = null!;
 
-        private Settings Settings;
+        private Settings _settings = null!;
 
         /// <inheritdoc />
         public Task<List<Result>> QueryAsync(Query query, CancellationToken token)
         {
             var result = new List<Result>();
-            if (string.IsNullOrWhiteSpace(query.Search)) return Task.FromResult(result);
+            if (string.IsNullOrWhiteSpace(query.Search))
+            {
+                result.Add(new Result
+                {
+                    Title = $"Please enter a natural number.",
+                    AutoCompleteText = ""
+                });
 
-            int newMinutesAmount;
-            if (int.TryParse(query.Search, out newMinutesAmount) && newMinutesAmount > 0)
+                return Task.FromResult(result);
+            }
+
+            if (int.TryParse(query.Search, out int newMinutesAmount) && newMinutesAmount > 0)
             {
                 result.Add(new Result
                 {
@@ -58,8 +66,8 @@ namespace Flow.Launcher.Plugin.Asus_Keyboard_Super_Slow_Rainbow
         public Task InitAsync(PluginInitContext context)
         {
             _context = context;
-            Settings = _context.API.LoadSettingJsonStorage<Settings>();
-            _stopAndReload(Settings.Duration);
+            _settings = _context.API.LoadSettingJsonStorage<Settings>();
+            _stopAndReload(_settings.Duration);
             return Task.CompletedTask;
         }
 
@@ -67,10 +75,10 @@ namespace Flow.Launcher.Plugin.Asus_Keyboard_Super_Slow_Rainbow
         {
             if (_currentRainbow != null)
             {
-                _currentRainbow.IsCancelRequested = true;
+                _currentRainbow.Cts.Cancel();
                 _currentTask.Wait();
             }
-
+            
             _currentRainbow = new RainbowColors(TimeSpan.FromMinutes(minutes));
             _currentTask = Task.Run(() => _currentRainbow.DoTheRainbow());
         }

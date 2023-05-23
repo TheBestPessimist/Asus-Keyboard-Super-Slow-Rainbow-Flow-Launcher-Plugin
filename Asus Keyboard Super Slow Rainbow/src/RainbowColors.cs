@@ -12,15 +12,15 @@ public class RainbowColors
     private readonly TimeSpan _desiredDuration;
     private readonly TimeSpan _sleepBetweenIterations;
 
-    private readonly CancellationToken _ct;
+    public readonly CancellationTokenSource Cts;
 
-    public RainbowColors(TimeSpan desiredDuration, int step = 10, CancellationToken ct = default)
+    public RainbowColors(TimeSpan desiredDuration, int step = 5)
     {
-        _desiredDuration = desiredDuration;
-        _sleepBetweenIterations = desiredDuration / _iterations;
         _step = step;
         _iterations = 256 * 6 / _step;
-        _ct = ct;
+        _desiredDuration = desiredDuration;
+        _sleepBetweenIterations = desiredDuration / _iterations;
+        Cts = new CancellationTokenSource();
 
         Console.WriteLine($"""
             Number of colors changed in 1 rainbow cycle: {_iterations}.
@@ -35,7 +35,7 @@ public class RainbowColors
     {
         while (true)
         {
-            if (_ct.IsCancellationRequested) return;
+            if (Cts.IsCancellationRequested) return;
 
             // ### Red ➡️ Orange ➡️ Yellow
             Console.WriteLine("Red ➡️ Orange ➡️ Yellow");
@@ -68,10 +68,10 @@ public class RainbowColors
 
     private void SetRgb(int r, int g, int b)
     {
-        if (_ct.IsCancellationRequested) return;
+        if (Cts.IsCancellationRequested) return;
 
         Aura.ApplyAura(Color.FromArgb(r, g, b));
         Console.WriteLine($"{r} {g} {b}");
-        _ct.WaitHandle.WaitOne(_sleepBetweenIterations);
+        Cts.Token.WaitHandle.WaitOne(_sleepBetweenIterations);
     }
 }
