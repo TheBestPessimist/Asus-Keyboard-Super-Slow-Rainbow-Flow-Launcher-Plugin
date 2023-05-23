@@ -44,8 +44,6 @@ namespace Flow.Launcher.Plugin.Asus_Keyboard_Super_Slow_Rainbow
                     AsyncAction = _ =>
                     {
                         _stopAndReload(newMinutesAmount);
-                        Settings.Duration = newMinutesAmount;
-                        _context.API.SaveSettingJsonStorage<Settings>();
                         return new ValueTask<bool>(true);
                     }
                 });
