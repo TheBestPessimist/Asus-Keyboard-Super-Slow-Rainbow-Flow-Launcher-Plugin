@@ -31,9 +31,19 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="Asus Keyboard Super Slow Rainbow">
-      <HintPath>..\..\Asus Keyboard Fiddling\Asus Keyboard Fiddling\Asus Keyboard Super Slow Rainbow\bin\Release\net7.0\Asus Keyboard Super Slow Rainbow.dll</HintPath>
-    </Reference>
+    <Compile Remove="Asus Keyboard Super Slow Rainbow\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="Asus Keyboard Super Slow Rainbow\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Asus Keyboard Super Slow Rainbow\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="Asus Keyboard Super Slow Rainbow\Asus Keyboard Super Slow Rainbow.csproj" />
   </ItemGroup>
 
 </Project>
