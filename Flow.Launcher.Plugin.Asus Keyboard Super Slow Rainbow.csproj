@@ -7,11 +7,12 @@
     <Authors>TheBestPessimist</Authors>
     <PackageProjectUrl>https://github.com/TheBestPessimist/Flow.Launcher.Plugin.Asus-Keyboard-Super-Slow-Rainbow</PackageProjectUrl>
     <RepositoryUrl>https://github.com/TheBestPessimist/Flow.Launcher.Plugin.Asus-Keyboard-Super-Slow-Rainbow</RepositoryUrl>
-    <PackageTags>flow-launcher flow-plugin</PackageTags>
+    <PackageTags>flow-launcher flow-plugin asus</PackageTags>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <RootNamespace>Flow.Launcher.Plugin.Asus_Keyboard_Super_Slow_Rainbow</RootNamespace>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
