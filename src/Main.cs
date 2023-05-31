@@ -28,7 +28,7 @@ namespace Flow.Launcher.Plugin.Asus_Keyboard_Super_Slow_Rainbow
             {
                 result.Add(new Result
                 {
-                    Title = $"Please enter a natural number.",
+                    Title = $"Please enter the desired duration in minutes.",
                     AutoCompleteText = ""
                 });
             }
@@ -49,7 +49,7 @@ namespace Flow.Launcher.Plugin.Asus_Keyboard_Super_Slow_Rainbow
             {
                 result.Add(new Result
                 {
-                    Title = $"Desired duration is not a valid natural number.",
+                    Title = $"Desired duration is not a valid number of minutes.",
                     AutoCompleteText = ""
                 });
             }
