@@ -40,6 +40,7 @@ namespace Flow.Launcher.Plugin.Asus_Keyboard_Super_Slow_Rainbow
                     AutoCompleteText = "",
                     AsyncAction = _ =>
                     {
+                        _settings.Duration = newMinutesAmount;
                         _stopAndReload(newMinutesAmount);
                         return new ValueTask<bool>(true);
                     }
