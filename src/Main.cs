@@ -31,13 +31,8 @@ namespace Flow.Launcher.Plugin.Asus_Keyboard_Super_Slow_Rainbow
                     Title = $"Please enter a natural number.",
                     AutoCompleteText = ""
                 });
-
-                AppendCurrentConfiguration(result);
-
-                return Task.FromResult(result);
             }
-
-            if (int.TryParse(query.Search, out int newMinutesAmount) && newMinutesAmount > 0)
+            else if (int.TryParse(query.Search, out var newMinutesAmount) && newMinutesAmount > 0)
             {
                 result.Add(new Result
                 {
@@ -59,6 +54,7 @@ namespace Flow.Launcher.Plugin.Asus_Keyboard_Super_Slow_Rainbow
                 });
             }
 
+            AppendCurrentConfiguration(result);
             return Task.FromResult(result);
         }
 
@@ -89,14 +85,13 @@ namespace Flow.Launcher.Plugin.Asus_Keyboard_Super_Slow_Rainbow
             {
                 result.Add(new Result
                 {
-                    Title = $"Desired Duration",
-                    SubTitle = $"{_currentRainbow.DesiredDuration}",
+                    SubTitle = $"Current configuration:",
                     AutoCompleteText = ""
                 });
                 result.Add(new Result
                 {
-                    Title = $"Total number of color changes",
-                    SubTitle = $"{_currentRainbow.Iterations}",
+                    Title = $"Desired Duration",
+                    SubTitle = $"{_currentRainbow.DesiredDuration}",
                     AutoCompleteText = ""
                 });
                 result.Add(new Result
@@ -107,7 +102,13 @@ namespace Flow.Launcher.Plugin.Asus_Keyboard_Super_Slow_Rainbow
                 });
                 result.Add(new Result
                 {
-                    Title = $"Sleep between each color change",
+                    Title = $"Total number of color changes (of steps)",
+                    SubTitle = $"{_currentRainbow.Iterations}",
+                    AutoCompleteText = ""
+                });
+                result.Add(new Result
+                {
+                    Title = $"Sleep between each step",
                     SubTitle = $"{_currentRainbow.SleepBetweenIterations}",
                     AutoCompleteText = ""
                 });

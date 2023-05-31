@@ -23,10 +23,10 @@ public class RainbowColors
         Cts = new CancellationTokenSource();
 
         Console.WriteLine($"""
-            Total number of color changes: {Iterations}
-            Colors changed in 1 step: {Step}
             Desired Duration: {DesiredDuration}
-            Sleep between each color change: {SleepBetweenIterations}
+            Colors changed in 1 step: {Step}
+            Total number of color changes (of steps): {Iterations}
+            Sleep between each step: {SleepBetweenIterations}
             """);
     }
 
