@@ -4,28 +4,29 @@ namespace Asus_Keyboard_Super_Slow_Rainbow;
 
 public class RainbowColors
 {
-    private readonly int _step;
+    public readonly int Step;
 
-    private readonly int _iterations;
+    public readonly int Iterations;
 
     // ReSharper disable once PrivateFieldCanBeConvertedToLocalVariable
-    private readonly TimeSpan _desiredDuration;
-    private readonly TimeSpan _sleepBetweenIterations;
+    public readonly TimeSpan DesiredDuration;
+    public readonly TimeSpan SleepBetweenIterations;
 
     public readonly CancellationTokenSource Cts;
 
     public RainbowColors(TimeSpan desiredDuration, int step = 5)
     {
-        _step = step;
-        _iterations = 256 * 6 / _step;
-        _desiredDuration = desiredDuration;
-        _sleepBetweenIterations = desiredDuration / _iterations;
+        Step = step;
+        Iterations = 256 * 6 / Step;
+        DesiredDuration = desiredDuration;
+        SleepBetweenIterations = desiredDuration / Iterations;
         Cts = new CancellationTokenSource();
 
         Console.WriteLine($"""
-            Number of colors changed in 1 rainbow cycle: {_iterations}.
-            Desired Duration: {_desiredDuration}.
-            Sleep between each color change: {_sleepBetweenIterations}.
+            Total number of color changes: {Iterations}
+            Colors changed in 1 step: {Step}
+            Desired Duration: {DesiredDuration}
+            Sleep between each color change: {SleepBetweenIterations}
             """);
     }
 
@@ -39,27 +40,27 @@ public class RainbowColors
 
             // ### Red ➡️ Orange ➡️ Yellow
             Console.WriteLine("Red ➡️ Orange ➡️ Yellow");
-            for (int green = 0; green <= 255; green += _step) SetRgb(255, green, 0);
+            for (int green = 0; green <= 255; green += Step) SetRgb(255, green, 0);
 
             // ### Yellow ➡️ Green
             Console.WriteLine("Yellow ➡️ Green");
-            for (int red = 255; red >= 0; red -= _step) SetRgb(red, 255, 0);
+            for (int red = 255; red >= 0; red -= Step) SetRgb(red, 255, 0);
 
             // ### Green ➡️ Cyan
             Console.WriteLine("Green ➡️ Cyan");
-            for (int blue = 0; blue <= 255; blue += _step) SetRgb(0, 255, blue);
+            for (int blue = 0; blue <= 255; blue += Step) SetRgb(0, 255, blue);
 
             // ### Cyan ➡️ Blue
             Console.WriteLine("Cyan ➡️ Blue");
-            for (int green = 255; green >= 0; green -= _step) SetRgb(0, green, 255);
+            for (int green = 255; green >= 0; green -= Step) SetRgb(0, green, 255);
 
             // ### Blue ➡️ Purple
             Console.WriteLine("Blue ➡️ Purple");
-            for (int red = 0; red <= 255; red += _step) SetRgb(red, 0, 255);
+            for (int red = 0; red <= 255; red += Step) SetRgb(red, 0, 255);
 
             // ### Purple ➡️ Red
             Console.WriteLine("Purple ➡️ Red");
-            for (int blue = 255; blue >= 0; blue -= _step) SetRgb(255, 0, blue);
+            for (int blue = 255; blue >= 0; blue -= Step) SetRgb(255, 0, blue);
 
             Console.WriteLine("============== Restart");
         }
@@ -72,6 +73,6 @@ public class RainbowColors
 
         Aura.ApplyAura(Color.FromArgb(r, g, b));
         Console.WriteLine($"{r} {g} {b}");
-        Cts.Token.WaitHandle.WaitOne(_sleepBetweenIterations);
+        Cts.Token.WaitHandle.WaitOne(SleepBetweenIterations);
     }
 }

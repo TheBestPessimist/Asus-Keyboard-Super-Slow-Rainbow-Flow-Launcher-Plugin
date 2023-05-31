@@ -32,6 +32,8 @@ namespace Flow.Launcher.Plugin.Asus_Keyboard_Super_Slow_Rainbow
                     AutoCompleteText = ""
                 });
 
+                AppendCurrentConfiguration(result);
+
                 return Task.FromResult(result);
             }
 
@@ -76,9 +78,40 @@ namespace Flow.Launcher.Plugin.Asus_Keyboard_Super_Slow_Rainbow
                 _currentRainbow.Cts.Cancel();
                 _currentTask.Wait();
             }
-            
-            _currentRainbow = new RainbowColors(TimeSpan.FromMinutes(minutes));
+
+            _currentRainbow = new RainbowColors(TimeSpan.FromMinutes(minutes), 10);
             _currentTask = Task.Run(() => _currentRainbow.DoTheRainbow());
+        }
+
+        private void AppendCurrentConfiguration(List<Result> result)
+        {
+            if (_currentRainbow != null)
+            {
+                result.Add(new Result
+                {
+                    Title = $"Desired Duration",
+                    SubTitle = $"{_currentRainbow.DesiredDuration}",
+                    AutoCompleteText = ""
+                });
+                result.Add(new Result
+                {
+                    Title = $"Total number of color changes",
+                    SubTitle = $"{_currentRainbow.Iterations}",
+                    AutoCompleteText = ""
+                });
+                result.Add(new Result
+                {
+                    Title = $"Colors changed in 1 step",
+                    SubTitle = $"{_currentRainbow.Step}",
+                    AutoCompleteText = ""
+                });
+                result.Add(new Result
+                {
+                    Title = $"Sleep between each color change",
+                    SubTitle = $"{_currentRainbow.SleepBetweenIterations}",
+                    AutoCompleteText = ""
+                });
+            }
         }
     }
 }

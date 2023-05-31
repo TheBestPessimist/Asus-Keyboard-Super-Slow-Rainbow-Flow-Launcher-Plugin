@@ -62,6 +62,7 @@ public static class Aura
         {
             if (!device.IsOpen)
             {
+                WriteLine("open");
                 device.OpenDevice();
             }
 
@@ -69,12 +70,12 @@ public static class Aura
             {
                 0x5d, 0xb3, 0x00, ModeStatic,
                 color.R, color.G, color.B,
-                SpeedSlow, 0, 0,
-                color.R, color.G, color.B
+                // SpeedSlow, 0, 0,
+                // color.R, color.G, color.B
             };
             device.Write(msg);
-            device.Write(MESSAGE_SET);
-            device.Write(MESSAGE_APPLY);
+            // device.Write(MESSAGE_SET);
+            // device.Write(MESSAGE_APPLY);
         }
     }
 }

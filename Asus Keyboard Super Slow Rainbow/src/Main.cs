@@ -1,9 +1,11 @@
 // See https://aka.ms/new-console-template for more information
 
-using System.Drawing;
+using System.Diagnostics;
 using Asus_Keyboard_Super_Slow_Rainbow;
-using static System.Console;
+using System.Windows;
 
 #pragma warning disable CS8321
 
-new RainbowColors(TimeSpan.FromSeconds(1000)).DoTheRainbow();
+new RainbowColors(TimeSpan.FromSeconds(20)).DoTheRainbow();
+
+
